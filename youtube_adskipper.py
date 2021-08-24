@@ -2,69 +2,50 @@ import cv2
 import numpy as np
 import pyautogui
 import time
-# faster version
-# lopping over the template matching
-
-# reading the templates
-template3 = cv2.imread('template3.png', 0)
-template4 = cv2.imread('template4.png', 0)
-template5 = cv2.imread('template5.png', 0)
-template6 = cv2.imread('template6.png', 0)
-
-# setting the threshold for confidence in template matching
+ 
+# lendo os templates
+template1 = cv2.imread('template3.png', 0)
+template2 = cv2.imread('template4.png', 0)
+template3 = cv2.imread('template5.png', 0)
+template4 = cv2.imread('template6.png', 0)
+template5 = cv2.imread('template6.png', 0)
+ 
 threshold = 0.7
+ 
+pyautogui.alert(text = 'Mantenha o cursor no canto superior esquerdo para interromper o programa', title= 'Critério de Interrupção')
 
-# alert box for stopping criteria
-pyautogui.alert(text = 'Keep the mouse pointer on the top left corner of screen to stop the program', title= 'Stopping Criteria')
+def checking (template):
+    res = cv2.matchTemplate(im1, template, cv2.TM_CCOEFF_NORMED)
+    loc = np.where(res >= threshold)
+    return loc
 
-# continuous loop to check for youtube ad
+def clicking (loc):
+    if loc[0].size != 0:
+        pyautogui.click(list(zip(*loc[::-1]))[0])
+        continue
+    else:
+        pass
+    
 while True:
     time.sleep(1)
     im1 = pyautogui.screenshot()
     im1 = np.asarray(im1.convert(mode = 'L'))
-#     im1.save('im1.png')
-#     im1 = cv2.imread('im1.png', 0)
+
+    loc1 = checking (template1)
+    clicking (loc1)
+    
+    loc2 = checking (template2)
+    clicking (loc2)
+    
+    loc3 = checking (template3)
+    clicking (loc3)
         
-# checking for template3   
-    res = cv2.matchTemplate(im1, template3, cv2.TM_CCOEFF_NORMED)
-    loc = np.where(res >= threshold)
+    loc4 = checking (template4)
+    clicking (loc4)
     
-# checking if template is matched
-    if loc[0].size != 0:
-# clicking on the first match
-        pyautogui.click(list(zip(*loc[::-1]))[0])
-        continue # continue loop from start without further execution of the loop
-        
-# checking for template4      
-    res = cv2.matchTemplate(im1, template4, cv2.TM_CCOEFF_NORMED)
-    loc = np.where(res >= threshold)
+    loc5 = checking (template5)
+    clicking (loc5)
     
-# checking if template is matched
-    if loc[0].size != 0:
-# clicking on the first match
-        pyautogui.click(list(zip(*loc[::-1]))[0])
-        continue # continue loop from start without further execution of the loop
-        
-# checking for template5        
-    res = cv2.matchTemplate(im1, template5, cv2.TM_CCOEFF_NORMED)
-    loc = np.where(res >= threshold)
-    
-# checking if template is matched
-    if loc[0].size != 0:
-# clicking on the first match
-        pyautogui.click(list(zip(*loc[::-1]))[0])
-        continue # continue loop from start without further execution of the loop    
-    
-# checking for template6        
-    res = cv2.matchTemplate(im1, template6, cv2.TM_CCOEFF_NORMED)
-    loc = np.where(res >= threshold)
-    
-# checking if template is matched
-    if loc[0].size != 0:
-# clicking on the first match
-        pyautogui.click(list(zip(*loc[::-1]))[0])
-    
-#     Stopping criteria
     if pyautogui.position() == (0,0):
-    	pyautogui.alert(text = 'Adskipper is Closed', title = 'Adskipper Closed')
-    	break
+        pyautogui.alert(text = 'Ads Skipper foi fechado', title = 'Adskipper Closed')
+        break
