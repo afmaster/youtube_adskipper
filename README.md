@@ -1,6 +1,6 @@
 # youtube_adskipper
 
-ENGLISH:
+*ENGLISH:
 
 This is a program written in python programming language. It automatically clicks on the 'skip ad' button on the youtube ads. It uses opencv library's Template Matching functionality to do that.
 
@@ -18,7 +18,7 @@ It does not have any graphical user interface(GUI). I have used a very ingenious
 
 
 
-PORTUGUÊS:
+*PORTUGUÊS:
 
 Esse programa foi escrito em Python. Ele automaticamente clica no botão de "Pular Anúncio" no Youtube. A biblioteca opencv é utilizada atrave´s da funcionalidade de reconecimento de padrões. Esse fork utiliza padrões de imagem em português-BR para licalização das referidas imagens.
 
