@@ -1,5 +1,14 @@
 # youtube_adskipper - Português - BR
 
+
+
+*PORTUGUÊS:
+
+Esse programa foi escrito em Python. Ele automaticamente clica no botão de "Pular Anúncio" no Youtube. A biblioteca opencv é utilizada atrave´s da funcionalidade de reconecimento de padrões. Esse fork utiliza padrões de imagem em português-BR para licalização das referidas imagens.
+
+Para desligar o programa, é necessário levar o botão do mouse para o quadrante superior esquerdo.
+
+
 *ENGLISH:
 
 This is a program written in python programming language. It automatically clicks on the 'skip ad' button on the youtube ads. It uses opencv library's Template Matching functionality to do that.
@@ -17,9 +26,3 @@ It does not take much RAM, neither it requires huge computational effort. I have
 It does not have any graphical user interface(GUI). I have used a very ingenious technique to come out of the while loop whenever one wants to stop the script. I have used an conditional statement to check for the coordinates of the mouse pointer. If the coordinates are (0,0), i.e., if the mouse is at the top left corner of the screen, it breaks out of the while loop.
 
 
-
-*PORTUGUÊS:
-
-Esse programa foi escrito em Python. Ele automaticamente clica no botão de "Pular Anúncio" no Youtube. A biblioteca opencv é utilizada atrave´s da funcionalidade de reconecimento de padrões. Esse fork utiliza padrões de imagem em português-BR para licalização das referidas imagens.
-
-Para desligar o programa, é necessário levar o botão do mouse para o quadrante superior esquerdo.
